@@ -122,28 +122,3 @@ class Part1 extends StatelessWidget {
     );
   }
 }
-class CustomSClipper extends CustomClipper<Path>{
-  @override
-  getClip(Size size) {
-    final Path path = new Path();
-    path.lineTo(0, size.height);
-    var firstEndPoint = Offset(size.width * 0.4,size.height-10);
-    var firstControlpoint = Offset(size.width *0.20,size.height * 0.3);
-    path.quadraticBezierTo(firstControlpoint.dx, firstControlpoint.dy,firstEndPoint.dx, firstControlpoint.dy);
-    var secondEndPoint = Offset(size.width, size.height );
-    var secondControlPoint = Offset(size.width , size.height );
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy, secondEndPoint.dx, secondEndPoint.dy);
-
-    
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper oldClipper) {
-    // TODO: implement shouldReclip
-    return true;
-  }
-
-}
